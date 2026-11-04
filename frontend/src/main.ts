@@ -119,5 +119,9 @@ class MotorcycleGalleryApp {
 
 const app = new MotorcycleGalleryApp();
 
-await app.loadData();
-app.renderMotorcycles();
+async function initializeApp(): Promise<void> {
+    await app.loadData();
+    app.renderMotorcycles();
+}
+
+initializeApp();
