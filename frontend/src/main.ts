@@ -80,6 +80,19 @@ class MotorcycleGalleryApp {
 
     private filterTerm: string = '';
 
+    constructor() {
+        const searchInput = document.querySelector<HTMLInputElement>('#name-filter-input');
+
+        if (!searchInput) {
+            return;
+        }
+
+        searchInput.addEventListener('input', () => {
+            this.filterTerm = searchInput.value;
+            this.renderMotorcycles();
+        });
+    }
+
     public async loadData(): Promise<void> {
         this.allMotorcycles = await fetchMotorcycles();
     }
