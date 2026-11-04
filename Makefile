@@ -30,9 +30,3 @@ frontend-yarn-install:
 
 frontend-yarn-add:
 	docker-compose run --rm frontend-node-cli yarn add
-
-frontend-yarn-build:
-	docker-compose run --rm frontend-node-cli yarn build
-
-frontend-yarn-lint:
-	docker-compose run --rm frontend-node-cli yarn lint
