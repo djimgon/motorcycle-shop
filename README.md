@@ -14,7 +14,7 @@ The project demonstrates practical TypeScript development, asynchronous API inte
 
 ## 📸 Preview
 
-![Motorcycle Shop — Desktop Preview](docs/screenshots/motorcycle-shop.png)
+![Motorcycle Shop — Desktop Preview](frontend/docs/screenshots/motorcycle-shop.png)
 
 A responsive motorcycle catalog featuring dynamic product cards, real-time search, and a clean, modern interface.
 
