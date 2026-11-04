@@ -1,13 +1,179 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>app</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+    <meta
+            name="description"
+            content="Discover premium motorcycles from the world's leading manufacturers. Find your next ride with MOTO."
+    />
+
+    <title>MOTO. — Find Your Next Ride</title>
+</head>
+
+<body>
+<div id="app">
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container header-inner">
+
+            <a href="/" class="logo" aria-label="MOTO Home">
+                MOTO<span class="logo-dot">.</span>
+            </a>
+
+            <span class="header-label">
+            BUILT FOR THE RIDE
+          </span>
+
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-content">
+
+          <span class="eyebrow">
+            THE FREEDOM TO EXPLORE
+          </span>
+
+            <h1>
+                Find your next
+                <span>obsession.</span>
+            </h1>
+
+            <p class="hero-description">
+                From city streets to open highways.
+                Discover extraordinary motorcycles
+                built for every journey.
+            </p>
+
+            <a href="#catalog" class="hero-link">
+                Explore the collection
+                <span aria-hidden="true">↗</span>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main id="catalog" class="catalog-section">
+        <div class="container">
+
+            <!-- CATALOG HEADER -->
+            <div class="catalog-header">
+
+                <div>
+                    <span class="section-label">THE COLLECTION</span>
+
+                    <h2>Explore motorcycles</h2>
+                </div>
+
+                <p class="catalog-subtitle">
+                    Discover the machine that moves you.
+                </p>
+
+            </div>
+
+            <!-- SEARCH -->
+            <div class="catalog-toolbar">
+
+                <div class="search-wrapper">
+
+                    <svg
+                            class="search-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                    >
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-4-4"></path>
+                    </svg>
+
+                    <input
+                            type="search"
+                            id="name-filter-input"
+                            placeholder="Search motorcycles by name..."
+                            aria-label="Search motorcycles by name"
+                            autocomplete="off"
+                    />
+
+                </div>
+
+            </div>
+
+            <!-- RESULTS COUNTER -->
+            <div id="results-count" class="results-count">
+
+                <p>
+                    Showing
+                    <span id="results-number">0</span>
+                    motorcycles
+                </p>
+
+            </div>
+
+            <!-- LOADING STATE -->
+            <div
+                    id="loading-container"
+                    class="loading-container"
+                    role="status"
+                    aria-label="Loading motorcycles"
+                    hidden
+            >
+                <div class="loading-spinner"></div>
+                <p>Loading motorcycles...</p>
+            </div>
+
+            <!-- EMPTY STATE -->
+            <div
+                    id="no-results"
+                    class="no-results"
+                    role="status"
+                    hidden
+            >
+                <h3>No motorcycles found</h3>
+
+                <p>
+                    Try searching for a different motorcycle.
+                </p>
+            </div>
+
+            <!-- MOTORCYCLE GRID -->
+            <div
+                    id="motorcycle-grid"
+                    class="motorcycle-grid"
+                    aria-live="polite"
+            ></div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+
+            <a href="/" class="logo">
+                MOTO<span class="logo-dot">.</span>
+            </a>
+
+            <p>
+                Built for the ride. Made for the journey.
+            </p>
+
+            <span>
+            © 2026 MOTO.
+          </span>
+
+        </div>
+    </footer>
+
+</div>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
 </html>
