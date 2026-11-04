@@ -67,6 +67,18 @@ function renderMotorcycleCard(motorcycle: Motorcycle): string {
     `;
 }
 
-const motorcycles = await fetchMotorcycles();
+class MotorcycleGalleryApp {
 
-console.log(renderMotorcycleCard(motorcycles[0]));
+    private allMotorcycles: Motorcycle[] = [];
+
+    private filterTerm: string = '';
+
+    public async loadData(): Promise<void> {
+        this.allMotorcycles = await fetchMotorcycles();
+    }
+
+}
+
+const app = new MotorcycleGalleryApp();
+
+await app.loadData();
