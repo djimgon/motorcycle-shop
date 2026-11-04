@@ -31,7 +31,42 @@ async function fetchMotorcycles(): Promise<Motorcycle[]> {
     return motorcycles;
 }
 
+function renderMotorcycleCard(motorcycle: Motorcycle): string {
+    return `
+        <div class="motorcycle-card">
+            <img
+                class="motorcycle-card-image"
+                src="${motorcycle.image_url}"
+                alt="${motorcycle.name}"
+            >
+
+            <span class="motorcycle-card-year-badge">
+                ${motorcycle.year}
+            </span>
+
+            <h2 class="motorcycle-card-title">
+                ${motorcycle.name}
+            </h2>
+
+            <p class="motorcycle-card-manufacturer">
+                ${motorcycle.manufacturer}
+            </p>
+
+            <span class="motorcycle-card-category">
+                ${motorcycle.category}
+            </span>
+
+            <p class="motorcycle-card-description">
+                ${motorcycle.description}
+            </p>
+
+            <p class="motorcycle-card-price">
+                ${motorcycle.price}
+            </p>
+        </div>
+    `;
+}
+
 const motorcycles = await fetchMotorcycles();
 
-console.log(motorcycles);
-console.log('Total motorcycles:', motorcycles.length);
+console.log(renderMotorcycleCard(motorcycles[0]));
