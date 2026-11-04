@@ -33,37 +33,44 @@ async function fetchMotorcycles(): Promise<Motorcycle[]> {
 
 function renderMotorcycleCard(motorcycle: Motorcycle): string {
     return `
-        <div class="motorcycle-card">
+        <article class="motorcycle-card">
+
             <img
                 class="motorcycle-card-image"
                 src="${motorcycle.image_url}"
                 alt="${motorcycle.name}"
+                loading="lazy"
             >
 
-            <span class="motorcycle-card-year-badge">
-                ${motorcycle.year}
-            </span>
+            <div class="motorcycle-card-content">
 
-            <h2 class="motorcycle-card-title">
-                ${motorcycle.name}
-            </h2>
+                <span class="motorcycle-card-year-badge">
+                    ${motorcycle.year}
+                </span>
 
-            <p class="motorcycle-card-manufacturer">
-                ${motorcycle.manufacturer}
-            </p>
+                <h3 class="motorcycle-card-title">
+                    ${motorcycle.name}
+                </h3>
 
-            <span class="motorcycle-card-category">
-                ${motorcycle.category}
-            </span>
+                <p class="motorcycle-card-manufacturer">
+                    ${motorcycle.manufacturer}
+                </p>
 
-            <p class="motorcycle-card-description">
-                ${motorcycle.description}
-            </p>
+                <span class="motorcycle-card-category">
+                    ${motorcycle.category}
+                </span>
 
-            <p class="motorcycle-card-price">
-                ${motorcycle.price}
-            </p>
-        </div>
+                <p class="motorcycle-card-description">
+                    ${motorcycle.description}
+                </p>
+
+                <p class="motorcycle-card-price">
+                    $${motorcycle.price.toLocaleString('en-US')}
+                </p>
+
+            </div>
+
+        </article>
     `;
 }
 
@@ -77,8 +84,27 @@ class MotorcycleGalleryApp {
         this.allMotorcycles = await fetchMotorcycles();
     }
 
+    public renderMotorcycles(): void {
+        const grid = document.querySelector<HTMLElement>('#motorcycle-grid');
+        const resultsNumber = document.querySelector<HTMLElement>('#results-number');
+
+        if (!grid || !resultsNumber) {
+            return;
+        }
+
+        const filteredMotorcycles = this.allMotorcycles.filter((motorcycle) =>
+            motorcycle.name.toLowerCase().includes(this.filterTerm.toLowerCase())
+        );
+
+        grid.innerHTML = filteredMotorcycles
+            .map((motorcycle) => renderMotorcycleCard(motorcycle))
+            .join('');
+
+        resultsNumber.textContent = String(filteredMotorcycles.length);
+    }
 }
 
 const app = new MotorcycleGalleryApp();
 
 await app.loadData();
+app.renderMotorcycles();
